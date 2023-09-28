@@ -9,6 +9,10 @@ categoryNames = ["Child Labour Total", "Child Labour Male", "Child Labour Female
 outputList = []
 
 for row in ws["B15:AE211"]:
-    outputList.append(row[1].value+categoryNames[1] + str(row[3].value))
+    for catInd in range(len(categoryNames)):
+        if row[3+2*catInd].value != '–':
+            outputList.append([str(row[0].value), str(categoryNames[catInd]), str(row[3+2*catInd].value)])
 
-print(outputList)
+with open("group10Lab4.csv", "w") as fptr:
+    writer = csv.writer(fptr)
+    writer.writerows(outputList)
