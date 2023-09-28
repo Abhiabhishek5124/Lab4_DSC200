@@ -10,9 +10,15 @@ outputList = []
 
 for row in ws["B15:AE211"]:
     for catInd in range(len(categoryNames)):
-        if row[3+2*catInd].value != '–':
-            outputList.append([str(row[0].value), str(categoryNames[catInd]), str(row[3+2*catInd].value)])
+        if row[3+2*catInd].value != "–" and row[3+2*catInd].value != None:
+            outputList.append([row[0].value, categoryNames[catInd], row[3+2*catInd].value])
 
-with open("group10Lab4.csv", "w") as fptr:
-    writer = csv.writer(fptr)
-    writer.writerows(outputList)
+fptr = open("group10Lab4.csv", "w", newline="")
+writer = csv.writer(fptr)
+writer.writerows(outputList)
+fptr.close()
+
+fptr2 = open("group10Lab4.csv", "r")
+print(sum(1 for row in fptr2))
+fptr2.close()
+
