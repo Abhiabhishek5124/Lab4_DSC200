@@ -1,5 +1,13 @@
+# Lab4-DSC200
+# Nathan Reed Abhishek Shrestha
+# Write a program that reads data from an excel file a list of child abuse events for several countries
+# and write the data into a csv file. Output the length of the resulting csv file.
+
+
+# import libraries for opening excel and csv files
 import openpyxl as op
 import csv
+# load the workbook from the excel file
 wb = op.load_workbook("Lab4Data.xlsx", read_only=True, data_only=True)
 
 # Select the active sheet of the workbook.
@@ -16,8 +24,8 @@ outputList = []
 for row in ws["B15:AE211"]:
     # Iterate through category indices in the categoryNames list.
     for catInd in range(len(categoryNames)):
-        # Check if the cell value is not "–" (en dash) and not None.
-        if row[3+2*catInd].value != "–" and row[3+2*catInd].value != None and row[3+2*catInd].value != 0:
+        # Check if the cell value is not "–" (en dash), not None, and not 0
+        if row[3+2*catInd].value != "–" and row[3+2*catInd].value is not None and row[3+2*catInd].value != 0:
             # Append data to the outputList as a list containing country name, category name, and cell value.
             outputList.append([row[0].value, categoryNames[catInd], row[3+2*catInd].value])
 
