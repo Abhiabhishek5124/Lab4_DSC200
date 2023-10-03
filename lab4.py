@@ -17,7 +17,7 @@ for row in ws["B15:AE211"]:
     # Iterate through category indices in the categoryNames list.
     for catInd in range(len(categoryNames)):
         # Check if the cell value is not "–" (en dash) and not None.
-        if row[3+2*catInd].value != "–" and row[3+2*catInd].value != None:
+        if row[3+2*catInd].value != "–" and row[3+2*catInd].value != None and row[3+2*catInd].value != 0:
             # Append data to the outputList as a list containing country name, category name, and cell value.
             outputList.append([row[0].value, categoryNames[catInd], row[3+2*catInd].value])
 
