@@ -1,20 +1,24 @@
 # Lab4-DSC200
 # Nathan Reed Abhishek Shrestha
-# Write a program that reads data from an excel file a list of child abuse events for several countries
+# Write a program that reads data from an Excel file a list of child abuse events for several countries
 # and write the data into a csv file. Output the length of the resulting csv file.
 
 
 # import libraries for opening excel and csv files
 import openpyxl as op
 import csv
-# load the workbook from the excel file
+# load the workbook from the Excel file
 wb = op.load_workbook("Lab4Data.xlsx", read_only=True, data_only=True)
 
 # Select the active sheet of the workbook.
 ws = wb.active
 
 # Define a list of category names that will be used later.
-categoryNames = ["Child Labour Total", "Child Labour Male", "Child Labour Female", "Child marriage <15", "Child marriage <18", "Birth Registration Total", "FGM Prevalence Women", "FGM Prevalence Girls", "FGM Support", "Wife Beating Justification Male", "Wife Beating Justification Female", "Violent Discipline Total", "Violent Discipline Male", "Violent Discipline Female"]
+categoryNames = ["Child Labour Total", "Child Labour Male", "Child Labour Female", "Child marriage <15",
+                 "Child Marriage <18", "Birth Registration Total", "FGM Prevalence Women",
+                 "FGM Prevalence Girls", "FGM Support", "Wife Beating Justification Male",
+                 "Wife Beating Justification Female", "Violent Discipline Total", "Violent Discipline Male",
+                 "Violent Discipline Female"]
 
 # Create an empty list to store the extracted data.
 outputList = []
