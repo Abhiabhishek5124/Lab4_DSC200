@@ -21,7 +21,7 @@ categoryNames = ["Child Labour Total", "Child Labour Male", "Child Labour Female
                  "Violent Discipline Female"]
 
 # Create an empty list to store the extracted data.
-outputList = []
+outputList = [["CountryName", "CategoryName", "CategoryTotal"]]
 
 
 # Iterate through rows in the Excel worksheet from B15 to AE211.
